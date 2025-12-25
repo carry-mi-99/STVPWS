@@ -183,22 +183,22 @@
     .client-marquee-inner{
         margin-top:80px;
     }
- .marquee-block {
+ .client-marquee-inner .marquee-block {
   overflow: hidden;
   width: 100%;
   max-width: clamp(866px, 84.375vw, 1620px);
 }
-.marquee-block.marquee-margin{
+.client-marquee-inner .marquee-block.marquee-margin{
     margin-top:70px;
 }
 
-.marquee-inner {
+.client-marquee-inner .marquee-inner {
   display: flex;
   width: max-content;
   animation: scroll-left 20s linear infinite;
   will-change: transform;
 }
-.marquee-block.reverse .marquee-inner{
+.client-marquee-inner .marquee-block.reverse .marquee-inner{
     animation: scroll-right 25s linear infinite;
 }
 
