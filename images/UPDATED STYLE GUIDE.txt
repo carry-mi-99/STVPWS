@@ -1,0 +1,23 @@
+CONTAINER SIZES UPDATED
+
+from 1799 to 1600 [.container { max-width: calc(1360px + 36px); }]
+from 1599 to 1440  [.container { max-width: calc(1240px + 36px); }]
+from 1439 to 1360  [.container { max-width: calc(1060px + 36px); }]
+from 1359 to 1200  [.container { max-width: calc(960px + 36px); }]
+from 1199 to 1024 [.container { max-width: calc(800px  + 36px); }]
+from 1023 to 840 [.container { max-width: calc(700px  + 36px); }]
+from 839 to 768 [.container { max-width: calc(640px + 36px); }]
+from 767 to 640 [.container { max-width: calc(600px + 36px); }]
+from 640 [.container { max-width: calc(100% + 36px); }]
+
+
+
+FONT-SIZES
+
+Width 1920px = Same as Figma
+1600px to 1024px = 52px - 48px
+1024px to 992px = 46px - 42px
+991px to 768px = 40px - 36px
+767px to 576px = 34px - 32px
+
+Less then 575px = Maximum 30px

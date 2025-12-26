@@ -64,17 +64,19 @@ h1 {
 }
 
 h2 {
-     font-size: 3.333vw; /*64px*/
+     /* font-size: 3.333vw;  */
+     font-size: 64px;
      line-height: 1.2;
      letter-spacing: -1px;
 }
 
-h3 {
+/* h3 {
      font-size: clamp(18px, 1.67vw, 32px);
-}
+} */
 
 h4 {
-     font-size: 1.875vw; /*36px*/
+     /* font-size: 1.875vw; */
+     font-size: 36px;
      letter-spacing: 0;
 }
 
