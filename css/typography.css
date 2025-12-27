@@ -47,7 +47,7 @@ body {
      font-weight: 300;
      font-size: 16px;
      line-height: 1.3;
-     color: #110F0E;
+     color: #000000;
      background: #fff;
      padding: 0;
      margin: 0;
@@ -107,6 +107,7 @@ p {
 .lh-46{
      line-height: 1.4;
 }
+
 .rdius-20{
      border-radius: 20px;
 }
@@ -141,6 +142,10 @@ p {
 
 .text_green {
      color: #008751;
+}
+
+.text-16{
+     font-size: 16px;
 }
 
 /* .light_grey {
