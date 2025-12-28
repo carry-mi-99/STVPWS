@@ -70,10 +70,6 @@ if (indMain) {
         },
         on: {
             init(swiper) {
-    //             titles.forEach((title, i) => {
-    //     title.dataset.state = i === 0 ? "active" : "right";
-    //   });
-    //   activeIndex = 0;
                 titles.forEach((title, i) => {
                     title.classList.remove("active", "is-left");
                     if (i === 0) {
@@ -83,70 +79,62 @@ if (indMain) {
                 activeIndex = 0;
             },
 
-//             slideChangeTransitionStart(swiper) {
-//   const nextIndex = swiper.realIndex;
-//   const prevIndex = activeIndex;
-
-//   const prevTitle = titles[prevIndex];
-//   const nextTitle = titles[nextIndex];
-
-//   // 1️⃣ FORCE previous title to CENTER (no animation)
-//   if (prevTitle) {
-//     prevTitle.style.transition = "none";
-//     prevTitle.dataset.state = "active";
-
-//     // force reflow
-//     prevTitle.offsetHeight;
-
-//     // restore transition
-//     prevTitle.style.transition = "";
-//     prevTitle.dataset.state = "left"; // CENTER → LEFT (correct exit)
-//   }
-
-//   // 2️⃣ PREP incoming title on RIGHT
-//   if (nextTitle) {
-//     nextTitle.style.transition = "none";
-//     nextTitle.dataset.state = "right";
-
-//     nextTitle.offsetHeight;
-
-//     nextTitle.style.transition = "";
-//     nextTitle.dataset.state = "active"; // RIGHT → CENTER
-//   }
-
-//   // 3️⃣ Park others on RIGHT
-//   titles.forEach((title, i) => {
-//     if (i !== prevIndex && i !== nextIndex) {
-//       title.dataset.state = "right";
-//     }
-//   });
-
-//   activeIndex = nextIndex;
-// }
-
-            slideChangeTransitionStart(swiper) {
+             slideChangeTransitionStart(swiper) {
                 const nextIndex = swiper.realIndex;
                 const total = titles.length;
 
-                const isLoopForward =
+                const isLoopReset =
                     activeIndex === total - 1 && nextIndex === 0;
 
-                titles.forEach((title, i) => {
-                    title.classList.remove("active", "is-left");
+                if (isLoopReset) {
+                    titles.forEach(title => {
+                        title.style.transition = "none";
+                        title.classList.remove("active", "is-left");
+                    });
 
-                    if (i === nextIndex) {
-                        title.classList.add("active");
-                    }
-                    else if (
-                        i < nextIndex ||
-                        isLoopForward
-                    ) {
-                        title.classList.add("is-left");
-                    }
+                    // force reflow
+                    void indMain.offsetHeight;
+                }
+
+                requestAnimationFrame(() => {
+                    titles.forEach((title, i) => {
+                        title.style.transition = "";
+
+                        if (i === nextIndex) {
+                            title.classList.add("active");
+                        } 
+                        else if (i < nextIndex) {
+                            title.classList.add("is-left");
+                        }
+                    });
+
+                    activeIndex = nextIndex;
                 });
-
-                activeIndex = nextIndex;
             }
+
+            // slideChangeTransitionStart(swiper) {
+            //     const nextIndex = swiper.realIndex;
+            //     const total = titles.length;
+
+            //     const isLoopForward =
+            //         activeIndex === total - 1 && nextIndex === 0;
+
+            //     titles.forEach((title, i) => {
+            //         title.classList.remove("active", "is-left");
+
+            //         if (i === nextIndex) {
+            //             title.classList.add("active");
+            //         }
+            //         else if (
+            //             i < nextIndex ||
+            //             isLoopForward
+            //         ) {
+            //             title.classList.add("is-left");
+            //         }
+            //     });
+
+            //     activeIndex = nextIndex;
+            // }
 
         }
     });
@@ -188,28 +176,37 @@ if (testimonialMain) {
                 activeIndex = 0;
             },
 
-            slideChangeTransitionStart(swiper) {
-                const nextIndex = swiper.realIndex;
+            slideChangeTransitionStart(tSwiper) {
+                const nextIndex = tSwiper.realIndex;
                 const total = testiMain.length;
 
-                const isLoopForward =
+                const isLoopReset =
                     activeIndex === total - 1 && nextIndex === 0;
 
-                testiMain.forEach((title, i) => {
-                    title.classList.remove("active", "is-left");
+                if (isLoopReset) {
+                    testiMain.forEach(title => {
+                        title.style.transition = "none";
+                        title.classList.remove("active", "is-left");
+                    });
 
-                    if (i === nextIndex) {
-                        title.classList.add("active");
-                    }
-                    else if (
-                        i < nextIndex ||
-                        isLoopForward
-                    ) {
-                        title.classList.add("is-left");
-                    }
+                    // force reflow
+                    void indMain.offsetHeight;
+                }
+
+                requestAnimationFrame(() => {
+                    testiMain.forEach((title, i) => {
+                        title.style.transition = "";
+
+                        if (i === nextIndex) {
+                            title.classList.add("active");
+                        } 
+                        else if (i < nextIndex) {
+                            title.classList.add("is-left");
+                        }
+                    });
+
+                    activeIndex = nextIndex;
                 });
-
-                activeIndex = nextIndex;
             }
 
         }
