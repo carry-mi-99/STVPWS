@@ -47,12 +47,12 @@ if (indMain) {
         slidesPerView: 2.5,
         spaceBetween: 20,
         loop: true,
-        // speed: 700,
-        // autoplay: {
-        //     delay: 3500,
-        //     disableOnInteraction: false,
-        //     pauseOnMouseEnter: true,
-        // },
+        speed: 700,
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
