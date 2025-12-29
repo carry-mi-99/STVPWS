@@ -1,8 +1,6 @@
 
 .container {
   width: 100%;
-  /* max-width: clamp(866px, 84.375vw, 1620px); */
-  max-width: calc(1620px + 36px);
   padding:0 18px;
   margin-inline: auto;
 }
@@ -37,6 +35,10 @@
     bottom:0;
     left:0;
 }
+/* .curve-marquee {
+  width: 100%;
+  height: auto;
+} */
 
 /* .curve-marquee {
         position: relative;
@@ -50,6 +52,7 @@
         font-size: 20px;
         letter-spacing: 0;
     }
+    text { white-space: nowrap; }
 
 
     /****About Us*******/
@@ -223,11 +226,11 @@
 .client-marquee-inner .marquee-inner {
   display: flex;
   width: max-content;
-  animation: scroll-left 20s linear infinite;
+  /* animation: scroll-left 20s linear infinite; */
   will-change: transform;
 }
 .client-marquee-inner .marquee-block.reverse .marquee-inner{
-    animation: scroll-right 25s linear infinite;
+    /* animation: scroll-right 25s linear infinite; */
 }
 
 .marquee-item {
@@ -241,6 +244,9 @@
   display: flex;
     align-items: center;
     justify-content: center
+}
+.marquee-item img{
+    max-width: 100%;
 }
 
     /* .client-marquee-inner .marquee-block .marquee-inner {
@@ -427,10 +433,27 @@ margin-top: 244px;
     margin-top:50px;
     /* padding-right: 70px; */
 }
+.ocalc-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.ocalc-list li::before {
+    content: "•";
+    font-size: 24px;
+    line-height: 1.2;
+}
+.ocalc-list li::marker{
+    margin:0;
+}
+.ocalc-list li h6 {
+    display: inline;
+}
 .ocal-bottom{
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    text-align: center;
 }
 
 .circular-box-main {

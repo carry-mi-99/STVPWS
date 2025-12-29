@@ -79,17 +79,18 @@ if (indMain) {
                 activeIndex = 0;
             },
 
-             slideChangeTransitionStart(swiper) {
+            slideChangeTransitionStart(swiper) {
                 const nextIndex = swiper.realIndex;
                 const total = titles.length;
 
-                const isLoopReset =
-                    activeIndex === total - 1 && nextIndex === 0;
+                const loopForward = activeIndex === total - 1 && nextIndex === 0;
+                const loopBackward = activeIndex === 0 && nextIndex === total - 1;
 
-                if (isLoopReset) {
-                    titles.forEach(title => {
-                        title.style.transition = "none";
-                        title.classList.remove("active", "is-left");
+                if (loopForward || loopBackward) {
+                    titles.forEach(t => {
+                        t.style.transition = "none";
+                        t.classList.remove("active", "is-left");
+                        t.style.transform = "translateX(100%)";
                     });
 
                     // force reflow
@@ -97,20 +98,21 @@ if (indMain) {
                 }
 
                 requestAnimationFrame(() => {
-                    titles.forEach((title, i) => {
-                        title.style.transition = "";
+                    titles.forEach((t, i) => {
+                        t.style.transition = "";
+                        t.style.transform = "";
 
-                        if (i === nextIndex) {
-                            title.classList.add("active");
-                        } 
-                        else if (i < nextIndex) {
-                            title.classList.add("is-left");
-                        }
+                        // IMPORTANT: always clear old state
+                        t.classList.remove("active", "is-left");
+
+                        if (i === nextIndex) t.classList.add("active");
+                        else if (i < nextIndex) t.classList.add("is-left");
                     });
 
                     activeIndex = nextIndex;
                 });
             }
+
 
             // slideChangeTransitionStart(swiper) {
             //     const nextIndex = swiper.realIndex;
@@ -151,13 +153,13 @@ if (testimonialMain) {
         spaceBetween: 20,
         loop: true,
         effect: 'fade',
-  fadeEffect: {
-    crossFade: true,
-  },
+        fadeEffect: {
+            crossFade: true,
+        },
         speed: 700,
-          pagination: {
+        pagination: {
             el: '.swiper-pagination',
-             clickable: true,
+            clickable: true,
         },
         autoplay: {
             delay: 3500,
@@ -180,35 +182,78 @@ if (testimonialMain) {
                 const nextIndex = tSwiper.realIndex;
                 const total = testiMain.length;
 
-                const isLoopReset =
-                    activeIndex === total - 1 && nextIndex === 0;
+                const loopForward = activeIndex === total - 1 && nextIndex === 0;
+                const loopBackward = activeIndex === 0 && nextIndex === total - 1;
 
-                if (isLoopReset) {
-                    testiMain.forEach(title => {
-                        title.style.transition = "none";
-                        title.classList.remove("active", "is-left");
+                if (loopForward || loopBackward) {
+                    testiMain.forEach(t => {
+                        t.style.transition = "none";
+                        t.classList.remove("active", "is-left");
+                        t.style.transform = "translateY(100%)";
                     });
 
-                    // force reflow
                     void indMain.offsetHeight;
                 }
 
                 requestAnimationFrame(() => {
-                    testiMain.forEach((title, i) => {
-                        title.style.transition = "";
+                    testiMain.forEach((t, i) => {
+                        t.style.transition = "";
+                        t.style.transform = "";
 
-                        if (i === nextIndex) {
-                            title.classList.add("active");
-                        } 
-                        else if (i < nextIndex) {
-                            title.classList.add("is-left");
-                        }
+                        t.classList.remove("active", "is-left");
+
+                        if (i === nextIndex) t.classList.add("active");
+                        else if (i < nextIndex) t.classList.add("is-left");
                     });
 
                     activeIndex = nextIndex;
                 });
             }
 
+
         }
     });
 }
+
+
+
+
+const tp1 = document.getElementById("tp1");
+const tp2 = document.getElementById("tp2");
+const curve = document.getElementById("curve");
+
+const text =
+    "IER electric steam humidifier\u00A0\u00A0\u00A0*\u00A0\u00A0\u00A0" +
+    "RES steamOres residential\u00A0\u00A0\u00A0*\u00A0\u00A0\u00A0" +
+    "ISE steam exchange humidifier\u00A0\u00A0\u00A0*\u00A0\u00A0\u00A0" +
+    "SR, SO, SB steam distribution\u00A0\u00A0\u00A0*\u00A0\u00A0\u00A0";
+
+const pathLen = curve.getTotalLength();
+
+tp1.textContent = text;
+const textLen = tp1.getComputedTextLength();
+
+
+const repeats = Math.ceil((pathLen * 1.5) / textLen);
+const fullText = text.repeat(repeats);
+
+tp1.textContent = fullText;
+tp2.textContent = fullText;
+
+let offset = 0;
+const speed = 80; 
+let last = performance.now();
+    
+function tick(now) {
+    const dt = (now - last) / 1000;
+    last = now;
+
+    offset = (offset + speed * dt) % pathLen;
+
+    tp1.setAttribute("startOffset", offset);
+    tp2.setAttribute("startOffset", offset - pathLen);
+
+    requestAnimationFrame(tick);
+}
+
+requestAnimationFrame(tick);
