@@ -86,7 +86,9 @@
     .a-col-right{
     width: 59.4%;;
    }
-
+.a-img-sm{
+    display: none;
+}
     /*****statistics*****/
     .statistics-wrapper{
         background-color: #000E2B;
@@ -187,8 +189,8 @@
     right: -5%;
 
     }
-    .stats-count{
-        font-size: 4.375vw;
+    .h1{
+        font-size:84px;
     }
     .mt-80{
         margin-top:150px;
@@ -226,11 +228,11 @@
 .client-marquee-inner .marquee-inner {
   display: flex;
   width: max-content;
-  /* animation: scroll-left 20s linear infinite; */
+  animation: scroll-left 20s linear infinite;
   will-change: transform;
 }
 .client-marquee-inner .marquee-block.reverse .marquee-inner{
-    /* animation: scroll-right 25s linear infinite; */
+    animation: scroll-right 25s linear infinite;
 }
 
 .marquee-item {

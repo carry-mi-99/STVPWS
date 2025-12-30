@@ -39,6 +39,8 @@
 // });
 
 const indMain = document.querySelector('.industries-wrapper');
+let activeIndex = 0;
+let justLoopedForward = false;
 if (indMain) {
     const titles = document.querySelectorAll(".ind-title");
     let activeIndex = 0;
@@ -68,79 +70,70 @@ if (indMain) {
                 slidesPerView: 2.5,
             },
         },
-        on: {
-            init(swiper) {
-                titles.forEach((title, i) => {
-                    title.classList.remove("active", "is-left");
-                    if (i === 0) {
-                        title.classList.add("active");
-                    }
-                });
-                activeIndex = 0;
-            },
+        // on: {
+        //     init(swiper) {
+        //         titles.forEach((title, i) => {
+        //             title.classList.remove("active", "is-left");
+        //             if (i === 0) {
+        //                 title.classList.add("active");
+        //             }
+        //         });
+        //         activeIndex = 0;
+        //     },
 
-            slideChangeTransitionStart(swiper) {
-                const nextIndex = swiper.realIndex;
-                const total = titles.length;
+        //     slideChangeTransitionStart(swiper) {
+        //         const nextIndex = swiper.realIndex;
+        //         const total = titles.length;
 
-                const loopForward = activeIndex === total - 1 && nextIndex === 0;
-                const loopBackward = activeIndex === 0 && nextIndex === total - 1;
+        //         const loopForward = activeIndex === total - 1 && nextIndex === 0;
+        //         const loopBackward = activeIndex === 0 && nextIndex === total - 1;
 
-                if (loopForward || loopBackward) {
-                    titles.forEach(t => {
-                        t.style.transition = "none";
-                        t.classList.remove("active", "is-left");
-                        t.style.transform = "translateX(100%)";
-                    });
+        //         if (loopForward || loopBackward) {
+        //             titles.forEach(t => {
+        //                 t.style.transition = "none";
+        //                 t.classList.remove("active", "is-left");
+        //                 t.style.transform = "translateX(100%)";
+        //             });
 
-                    // force reflow
-                    void indMain.offsetHeight;
-                }
+        //             // force reflow
+        //             void indMain.offsetHeight;
+        //         }
 
-                requestAnimationFrame(() => {
-                    titles.forEach((t, i) => {
-                        t.style.transition = "";
-                        t.style.transform = "";
+        //         requestAnimationFrame(() => {
+        //             titles.forEach((t, i) => {
+        //                 t.style.transition = "";
+        //                 t.style.transform = "";
 
-                        // IMPORTANT: always clear old state
-                        t.classList.remove("active", "is-left");
+        //                 // IMPORTANT: always clear old state
+        //                 t.classList.remove("active", "is-left");
 
-                        if (i === nextIndex) t.classList.add("active");
-                        else if (i < nextIndex) t.classList.add("is-left");
-                    });
+        //                 if (i === nextIndex) t.classList.add("active");
+        //                 else if (i < nextIndex) t.classList.add("is-left");
+        //             });
 
-                    activeIndex = nextIndex;
-                });
-            }
+        //             activeIndex = nextIndex;
+        //         });
+        //     }
 
-
-            // slideChangeTransitionStart(swiper) {
-            //     const nextIndex = swiper.realIndex;
-            //     const total = titles.length;
-
-            //     const isLoopForward =
-            //         activeIndex === total - 1 && nextIndex === 0;
-
-            //     titles.forEach((title, i) => {
-            //         title.classList.remove("active", "is-left");
-
-            //         if (i === nextIndex) {
-            //             title.classList.add("active");
-            //         }
-            //         else if (
-            //             i < nextIndex ||
-            //             isLoopForward
-            //         ) {
-            //             title.classList.add("is-left");
-            //         }
-            //     });
-
-            //     activeIndex = nextIndex;
-            // }
-
-        }
+        // }
     });
 
+    const titleSwiper = new Swiper(".titleSlider", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        speed: 700,
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        
+    });
 }
 
 const testimonialMain = document.querySelector('.testimonial-wrapper');
