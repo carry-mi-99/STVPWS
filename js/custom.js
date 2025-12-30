@@ -208,6 +208,31 @@ if (testimonialMain) {
     });
 }
 
+  const blogSwiper = new Swiper(".blogSlider", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        speed: 700,
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+       pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+         breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            576: {
+                slidesPerView: 1.2,
+            },
+        },
+        
+    });
+
 
 
 

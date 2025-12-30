@@ -189,9 +189,7 @@
     right: -5%;
 
     }
-    .h1{
-        font-size:84px;
-    }
+  
     .mt-80{
         margin-top:150px;
     }
@@ -322,6 +320,11 @@ margin-top: 244px;
 .p-table-main .table>:not(caption)>*>*{
     background-color: transparent;
     padding: 20px;
+}
+.pr-img-sm,
+.circular-md,
+.blog-slider-mobile{
+    display: none;
 }
 /* .products-tab-inner{
     margin-top:40px;
@@ -758,6 +761,31 @@ margin-top: 0;
     margin:0 0 20px 0;
 }
 
+/********About Us Page***********/
+.about-hero-wrapper{
+    height: 850px;
+}
+.about-hero-wrapper{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url(../images/about-us/about-banner-img.webp) center center / cover no-repeat;
+    transform: scale(1);
+    /* animation: bgZoomOut 2s ease-out forwards; */
+    z-index: 0;
+}
+.about-hero-wrapper > * {
+    position: relative;
+    z-index: 1;
+}
+.a-right-text{
+margin-left: auto;
+width: 35%;
+}
+.a-title{
+    width: 70%;
+}
+
 @keyframes scroll-left {
 			from {
     transform: translate3d(0, 0, 0);
@@ -780,4 +808,13 @@ margin-top: 0;
      100% {
           transform: rotate(360deg);
      }
+}
+
+@keyframes bgZoomOut {
+    from {
+        transform: scale(1.3);
+    }
+    to {
+        transform: scale(1);
+    }
 }

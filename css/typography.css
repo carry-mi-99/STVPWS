@@ -59,24 +59,17 @@ a:hover {
      text-decoration: none;
 }
 
-h1 {
-     font-size: clamp(36px, 5.56vw, 106px);
-     line-height: 1.2;
-}
+h1,.h1{
+        font-size:84px;
+    } 
 
 h2 {
-     /* font-size: 3.333vw;  */
      font-size: 64px;
      line-height: 1.2;
      letter-spacing: -1px;
 }
 
-/* h3 {
-     font-size: clamp(18px, 1.67vw, 32px);
-} */
-
 h4 {
-     /* font-size: 1.875vw; */
      font-size: 36px;
      letter-spacing: 0;
 }
@@ -111,6 +104,9 @@ p {
 
 .rdius-20{
      border-radius: 20px;
+}
+.text-lime-green{
+     color:#E6FFBD;
 }
 .sec-margin-top{
      margin-top:150px;
