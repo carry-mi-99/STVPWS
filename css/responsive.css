@@ -67,13 +67,20 @@
     .d-row {
         gap: 83px;
     }
-    .count-block .h6,
+    .h6,
     .ab-desc{
         font-size: 20px;
     }
     .count-item {
-    padding: 48px 58px;
-}
+        padding: 48px 40px;
+        width: 353px;
+    }
+    .count-block .h1{
+        font-size: 76px;
+    }
+    .feature-item .h4{
+        font-size: 30px;
+    }
 }
 
 @media screen and (max-width:1750px) {
@@ -196,8 +203,16 @@
     }
         .count-item {
         padding: 48px 38px;
+        width: 321px;
     }
-    .count-block .h6, .ab-desc {
+    .counter-row,
+    .counter-inner{
+        gap:30px;
+    }
+        .count-block .h1 {
+        font-size: 72px;
+    }
+    .h6, .ab-desc {
         font-size: 18px;
     }
 
@@ -221,6 +236,9 @@
     .statistics-content-inner .mt-80 {
         margin-top: 110px;
     }
+        .feature-item .h4 {
+        font-size: 27px;
+    }   
 }
 
 @media screen and (max-width:1550px) {
@@ -406,6 +424,10 @@
     }
         .count-item {
         padding: 48px 36px;
+         width: 276px;
+        }
+            .count-block .h1 {
+        font-size: 68px;
     }
 
     .a-title {
@@ -533,6 +555,9 @@
 
     .products-tab-inner .nav-pills {
         bottom: 30px;
+    }
+        .feature-item .h4 {
+        font-size: 22px;
     }
 
 
@@ -690,7 +715,11 @@
         gap: 30px;
     }
         .count-item {
-        padding: 38px 35px;
+                padding: 38px 30px;
+        width: 249px;
+    }
+    .count-block .h1 {
+        font-size: 60px;
     }
     .ab-desc {
     margin-top: 15px;
@@ -771,6 +800,16 @@
     .highlighted-text {
         font-size: 14.344vw;
     }
+        .feature-item .h4 {
+        font-size: 21px;
+    }
+    .feature-item{
+            padding: 40px 20px;
+    }
+    .fe-icon {
+        margin: 30px 0 20px 0;
+    }
+
 
 }
 
@@ -845,7 +884,7 @@
         font-size: 40px;
     }
     .a-row{
-        gap:30px;
+        gap:45px;
     }
 
     .a-img-sm {
@@ -1178,6 +1217,13 @@
     .ocalc-img img {
         height: 349px;
     }
+    .count-item{
+        width: 40%;
+    }
+    .feature-item.col-33{
+        width: 48%;
+    }
+
 }
 
 @media screen and (max-width:1150px) {
@@ -1335,6 +1381,9 @@
     h1,.h1 {
         font-size: 46px;
     }
+        h2.d-title {
+        font-size: 32px;
+    }
 
     .a-right-text {
         width: 63%;
@@ -1393,6 +1442,9 @@
 
     .product-tab-wrapper .tab-pane {
         margin-top: 230px;
+    }
+        .feature-item.col-33 {
+        width: 47%;
     }
 }
 
@@ -1521,6 +1573,9 @@
 }
 
 @media screen and (max-width:839.98px) {
+        h2.d-title {
+        font-size: 30px;
+    }
 
     .a-right-text {
         width: 64%;
@@ -1588,6 +1643,9 @@
     .product-tab-wrapper .tab-pane {
         margin-top: 220px;
     }
+        .count-block .h1 {
+        font-size: 56px;
+    }
 
 }
 
@@ -1616,11 +1674,13 @@
         h1,.h1 {
         font-size: 34px;
     }
+    h2.d-title {
+        font-size: 28px;
+    }
 
     h2 {
         font-size: 26px;
     }
-
     h4 {
         font-size: 20px;
     }
@@ -1636,6 +1696,9 @@
 
     h6 {
         font-size: 18px;
+    }
+        .a-row {
+        gap: 30px;
     }
 
     .client-marquee-inner .marquee-block.last {
@@ -2036,14 +2099,20 @@
         .a-right-text {
         width: 71%;
     }
+        .count-item {
+        width: 50%;
+    }
 }
 
 
 @media screen and (max-width:575px) {
         h1,.h1 {
         font-size: 30px;
+    }   
+    
+    h2.d-title {
+        font-size: 26px;
     }
-
     h2 {
         font-size: 22px;
     }
@@ -2212,7 +2281,15 @@
     .circular-arrow.circular-md {
         right: 17%;
     }
-
+.count-item {
+        width: 100%;
+    }
+    .counter-row{
+        flex-direction: column;
+    }
+        .feature-item.col-33 {
+        width: 100%;
+    }
 
 }
 

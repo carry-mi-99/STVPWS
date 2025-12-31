@@ -806,6 +806,7 @@ width: 35%;
 }
 .count-item{
     padding:58px 78px;
+    width: 393px;
 }
 .ab-desc{
     margin-top:20px;
@@ -834,19 +835,22 @@ width: 35%;
 .feature-grid-main{
     gap:30px;
     margin-top:96px;
+    flex-wrap: wrap;
 }
 .feature-item{
     background:#fff; 
     padding:50px 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 .fe-icon{
     width: 144px;
     height: 144px;
     margin:45px 0 20px 0;
 }
+.feature-item .ab-desc {
+        margin-top: 0;
+    }
 
 
 @keyframes scroll-left {
