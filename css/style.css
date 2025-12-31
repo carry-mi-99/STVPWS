@@ -57,7 +57,7 @@
 
     /****About Us*******/
     .sub-title{
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
     .about-desc-inner{
         padding-left: 104px;
@@ -785,6 +785,69 @@ width: 35%;
 .a-title{
     width: 70%;
 }
+.a-row{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+.d-row{
+    gap:112px;
+}
+/* .d-col-one{
+    padding-right: 56px;
+}
+.d-col-two{
+    padding-left: 56px;
+} */
+.counter-row{
+    display: flex;
+    gap:40px;
+}
+.count-item{
+    padding:58px 78px;
+}
+.ab-desc{
+    margin-top:20px;
+}
+.count,
+.count-block p{
+    color:#093250;
+}
+.counter-inner{
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+}
+.d-title{
+    width: 95%;
+}
+
+/******About Feature*********/
+.f-row{
+    justify-content: space-between;
+    gap:32px;
+}
+.feature-wrapper .main-title{
+    width: 80%;
+}
+.feature-grid-main{
+    gap:30px;
+    margin-top:96px;
+}
+.feature-item{
+    background:#fff; 
+    padding:50px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.fe-icon{
+    width: 144px;
+    height: 144px;
+    margin:45px 0 20px 0;
+}
+
 
 @keyframes scroll-left {
 			from {

@@ -60,6 +60,20 @@
     .stats-desc h6 {
         width: 58%;
     }
+    h2.d-title{
+        font-size: 56px;
+        width: 98%;
+    }
+    .d-row {
+        gap: 83px;
+    }
+    .count-block .h6,
+    .ab-desc{
+        font-size: 20px;
+    }
+    .count-item {
+    padding: 48px 58px;
+}
 }
 
 @media screen and (max-width:1750px) {
@@ -128,7 +142,7 @@
 }
 
 @media screen and (max-width:1600px) {
-    h1 {
+    h1,.h1 {
         font-size: 74px;
     }
 
@@ -176,6 +190,15 @@
 @media screen and (max-width:1599.98px) {
     .container {
         max-width: calc(1240px + 36px);
+    }
+    h2.d-title {
+        font-size: 52px;
+    }
+        .count-item {
+        padding: 48px 38px;
+    }
+    .count-block .h6, .ab-desc {
+        font-size: 18px;
     }
 
     .a-title {
@@ -371,6 +394,19 @@
     .container {
         max-width: calc(1060px + 36px);
     }
+        h1,.h1 {
+        font-size: 64px;
+    }
+        h2.d-title {
+        font-size: 46px;
+        width: 100%;
+    }
+        .d-row {
+        gap: 63px;
+    }
+        .count-item {
+        padding: 48px 36px;
+    }
 
     .a-title {
         width: 90%;
@@ -379,6 +415,18 @@
     .a-right-text {
         width: 41%;
     }
+    .feature-wrapper .main-title {
+    width: 90%;
+}
+.f-col-one.col-63{
+    width: 54%;
+}
+.f-col-two.col-37{
+    width: 46%;
+}
+.f-row{
+     gap: 22px; 
+}
 
     .about-desc-inner h4 {
         font-size: 21px;
@@ -631,6 +679,28 @@
     .container {
         max-width: calc(960px + 36px);
     }
+    .a-title {
+        width: 80%;
+    }
+    h1,.h1 {
+        font-size: 52px;
+    }
+    .counter-row,
+    .counter-inner{
+        gap: 30px;
+    }
+        .count-item {
+        padding: 38px 35px;
+    }
+    .ab-desc {
+    margin-top: 15px;
+}
+        h2.d-title {
+        font-size: 42px;
+    }
+        .d-row {
+        gap: 45px;
+    }
 
     .about-hero-wrapper {
         height: 690px;
@@ -736,24 +806,31 @@
 }
 
 @media screen and (max-width:1199.98px) {
-    h6 {
+    h6,.h6 {
         font-size: 18px;
     }
 
     .container {
         max-width: calc(800px + 36px);
     }
-
-    .about-hero-wrapper {
-        height: 570px;
+    .d-row {
+        gap: 30px;
+        flex-direction: column;
+    }
+    .col-45,
+    .col-55{
+        width: 100%;
+    }
+        h2.d-title {
+        font-size: 36px;
     }
 
-    h1 {
-        font-size: 64px;
+    .about-hero-wrapper {
+        height: 620px;
     }
 
     .a-right-text {
-        width: 54%;
+        width: 59%;
     }
 
     .about-desc-inner h4 {
@@ -766,6 +843,9 @@
 
     .stats-count.h1 {
         font-size: 40px;
+    }
+    .a-row{
+        gap:30px;
     }
 
     .a-img-sm {
@@ -1252,16 +1332,12 @@
         height: 570px;
     }
 
-    h1 {
-        font-size: 58px;
+    h1,.h1 {
+        font-size: 46px;
     }
 
     .a-right-text {
         width: 63%;
-    }
-
-    .a-title {
-        width: 100%;
     }
 
     .ocal-content {
@@ -1321,6 +1397,9 @@
 }
 
 @media screen and (max-width:991.98px) {
+    h1,.h1 {
+        font-size: 40px;
+    }
     h2 {
         font-size: 28px;
     }
@@ -1356,7 +1435,7 @@
     }
 
     .about-hero-wrapper {
-        height: 490px;
+        height: 530px;
     }
 }
 
@@ -1442,12 +1521,9 @@
 }
 
 @media screen and (max-width:839.98px) {
-    h1 {
-        font-size: 52px;
-    }
 
     .a-right-text {
-        width: 72%;
+        width: 64%;
     }
 
     .about-hero-wrapper {
@@ -1536,6 +1612,9 @@
 @media screen and (max-width:767.98px) {
     .container {
         max-width: calc(600px + 36px);
+    }
+        h1,.h1 {
+        font-size: 34px;
     }
 
     h2 {
@@ -1679,28 +1758,6 @@
 }
 
 @media screen and (max-width:640.98px) {
-    .a-right-text {
-        width: 72%;
-        margin: 40px auto 0;
-        text-align: center;
-    }
-
-    .about-hero-wrapper .h-100 {
-        height: auto !important;
-    }
-
-    .about-hero-wrapper {
-        height: auto;
-        padding: 100px 0;
-    }
-
-    h1 {
-        font-size: 42px;
-    }
-
-    .a-title {
-        text-align: center;
-    }
 
     .ocalc-list {
         padding: 0 0 0 0;
@@ -1976,10 +2033,16 @@
         width: 130px;
         height: 130px;
     }
+        .a-right-text {
+        width: 71%;
+    }
 }
 
 
 @media screen and (max-width:575px) {
+        h1,.h1 {
+        font-size: 30px;
+    }
 
     h2 {
         font-size: 22px;
@@ -2002,9 +2065,22 @@
         font-size: 14px;
     }
 
-    /* .sub-title {
-        margin-bottom: 10px;
-    } */
+     .a-right-text {
+        width: 89%;
+        margin: 0;
+    }
+        .a-title {
+        width: 85%;
+    }
+
+    .about-hero-wrapper .h-100 {
+        height: auto !important;
+    }
+
+    .about-hero-wrapper {
+        height: auto;
+        padding: 100px 0;
+    }
 
     .t-content h4 {
         font-size: 18px;
@@ -2133,14 +2209,6 @@
         height: 210px;
     }
 
-    .a-right-text {
-        width: 89%;
-    }
-
-    .about-hero-wrapper {
-        padding: 80px 0;
-    }
-
     .circular-arrow.circular-md {
         right: 17%;
     }
@@ -2168,10 +2236,6 @@
 
     .t-titles {
         width: 60%;
-    }
-
-    h1 {
-        font-size: 32px;
     }
 
     .circular-arrow.circular-md {
@@ -2274,9 +2338,15 @@
     .t-title {
         top: 7px;
     }
+        .a-title {
+        width: 90%;
+    }
 }
 
 @media screen and (max-width:430.98px) {
+    h1{
+        font-size: 28px;
+    }
     .curve-marquee-main {
         bottom: -170px;
     }
@@ -2357,7 +2427,7 @@
         margin-top: 0;
     }
 
-    h6 {
+    h6,.h6 {
         font-size: 16px;
     }
 
@@ -2395,6 +2465,15 @@
 
     .product-tab-wrapper .tab-pane {
         margin-top: 140px;
+    }
+    .a-title {
+        width: 100%;
+    }
+    .a-right-text {
+        width: 100%;
+    }
+    .about-hero-wrapper{
+        padding:80px 0;
     }
 
 }

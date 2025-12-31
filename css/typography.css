@@ -48,7 +48,7 @@ body {
      font-size: 16px;
      line-height: 1.3;
      color: #000000;
-     background: #fff;
+     background: #fafafa;
      padding: 0;
      margin: 0;
      overflow-x:hidden;
@@ -69,7 +69,7 @@ h2 {
      letter-spacing: -1px;
 }
 
-h4 {
+h4,.h4 {
      font-size: 36px;
      letter-spacing: 0;
 }
@@ -78,7 +78,7 @@ h5 {
      font-size: 28px;
      letter-spacing: 0;
 }
-h6{
+h6,.h6{
      font-size: 22px;
      letter-spacing: 0;
      line-height: 1.4;
@@ -101,7 +101,9 @@ p {
 .lh-46{
      line-height: 1.4;
 }
-
+.lh-1{
+     line-height: 1;
+}
 .rdius-20{
      border-radius: 20px;
 }
@@ -140,10 +142,45 @@ p {
 .text_green {
      color: #008751;
 }
+.bg-lime-green{
+     background-color: #E6FFBD;
+}
+.bg-lavendar{
+     background-color: #EEEFFA;
+}
+
 
 .text-16{
      font-size: 16px;
 }
+.col-45{
+     width: 45%;
+}
+.col-55{
+     width: 55%;
+}
+.col-63{
+     width: 63%;
+}
+.col-37{
+     width: 37%;
+}
+.col-50{
+     width: 50%;
+}
+.col-33{
+     width: 33.33%;
+}
+.custom-row{
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* margin-left:-18px;
+    margin-right: -18px; */
+}
+/* .custom-row > *{
+    padding-left:18px;
+    padding-right: 18px;
+} */
 
 /* .light_grey {
      color: #444444;
