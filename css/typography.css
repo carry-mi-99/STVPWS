@@ -63,7 +63,7 @@ h1,.h1{
         font-size:84px;
     } 
 
-h2 {
+h2,.h2 {
      font-size: 64px;
      line-height: 1.2;
      letter-spacing: -1px;
@@ -98,6 +98,9 @@ p {
 .grey-900{
      color:#505456;
 }
+.grey-1000{
+     color: #353839;
+}
 .lh-46{
      line-height: 1.4;
 }
@@ -106,6 +109,9 @@ p {
 }
 .rdius-20{
      border-radius: 20px;
+}
+.mt-20{
+     margin-top:20px;
 }
 .text-lime-green{
      color:#E6FFBD;
@@ -147,6 +153,15 @@ p {
 }
 .bg-lavendar{
      background-color: #EEEFFA;
+}
+.bg-purple{
+     background-color: #9CA1E2;
+}
+.bg-grey-100{
+     background-color: #EFF0F1;
+}
+.bg-blue-100{
+    background-color: #EFF0F1; 
 }
 
 

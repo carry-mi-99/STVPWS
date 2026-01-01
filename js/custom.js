@@ -132,7 +132,7 @@ if (indMain) {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-        
+
     });
 }
 
@@ -208,31 +208,55 @@ if (testimonialMain) {
     });
 }
 
-  const blogSwiper = new Swiper(".blogSlider", {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: true,
-        speed: 700,
-        autoplay: {
-            delay: 3500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
+const blogSwiper = new Swiper(".blogSlider", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    speed: 700,
+    autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
         },
-       pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+        576: {
+            slidesPerView: 1.2,
         },
-         breakpoints: {
-            0: {
-                slidesPerView: 1,
-            },
-            576: {
-                slidesPerView: 1.2,
-            },
+    },
+
+});
+
+const timelineSlider = document.querySelector('.timeline-wrapper');
+if (timelineSlider) {
+    const years = document.querySelectorAll(".timeline-years span");
+
+    const swiper = new Swiper(".timelineSlider", {
+        effect: "cards",
+        grabCursor: true,
+        cardsEffect: {
+            slideShadows: false,
         },
-        
+        on: {
+            slideChange: function () {
+                years.forEach((year) => year.classList.remove("active"));
+                years[this.activeIndex].classList.add("active");
+            }
+        }
     });
 
+    years.forEach((year) => {
+        year.addEventListener("click", () => {
+            swiper.slideTo(year.dataset.index);
+        });
+    });
+}
 
 
 
@@ -259,9 +283,9 @@ tp1.textContent = fullText;
 tp2.textContent = fullText;
 
 let offset = 0;
-const speed = 80; 
+const speed = 80;
 let last = performance.now();
-    
+
 function tick(now) {
     const dt = (now - last) / 1000;
     last = now;
