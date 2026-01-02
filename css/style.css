@@ -107,7 +107,7 @@
         padding-left: 75px;
     }
     .highlighted-text{
-        font-size:16.344vw;
+        font-size:15.344vw;
         letter-spacing: 0.03em;
         color: rgba(255, 255, 255, 0.1);
         line-height: 1;
@@ -155,7 +155,7 @@
     .stats-item.md .stats-circle{
         width: 18.958vw;
         height: 18.958vw;
-        background: rgba(230, 255, 189, 0.12);
+        background: rgba(230, 255, 189, 0.20);
         backdrop-filter: blur(22px) saturate(60%);
   -webkit-backdrop-filter: blur(22px) saturate(60%);
   /* box-shadow:
@@ -167,7 +167,7 @@
     .stats-item.sm .stats-circle{
         width: 13.229vw;
         height: 13.229vw;
-        background: rgba(66, 168, 243, 0.12);
+        background: rgba(66, 168, 243, 0.20);
         backdrop-filter: blur(20px) saturate(80%);
   -webkit-backdrop-filter: blur(20px) saturate(80%);
   /* box-shadow:
@@ -181,7 +181,7 @@
         height: 11.042vw;
          /* top: -35%;
         right: -19%; */
-        background: rgba(85, 113, 171, 0.10);
+        background: rgba(85, 113, 171, 0.16);
         backdrop-filter: blur(20px) saturate(55%);
   -webkit-backdrop-filter: blur(20px) saturate(55%);
   /* top: -57%;
@@ -291,7 +291,7 @@
     background-color: rgba(217, 237, 252, 0.5);
 }
 .product-tab-wrapper .main-title{
-    width: 50%;
+    width: 820px;
     position: absolute;
     top:0;
     left:0;
@@ -393,7 +393,7 @@ margin-top: 244px;
     z-index: 1;
 }
 .pro-sub-desc{
-    padding-top: 70px;
+    padding-top: 50px;
     margin-bottom: 80px;
 }
 .p-table-inner{
@@ -414,7 +414,8 @@ margin-top: 244px;
 .main-btn{
     border:1px solid #D4DBEA;
     border-radius: 20px;
-    padding:25px 90px;
+    padding: 25px 70px;
+    width: 470px;
 }
 .o-buttons{
     display: flex;
@@ -550,7 +551,7 @@ margin-top: 244px;
     bottom: -110px;
     width: 54%;
     height: 362px;
-    background: #e6e6e6;
+    background: #fafafa;
     box-shadow: 0px 0px 118.7px rgba(0, 0, 0, 0.06);
     display: flex;
     align-items: flex-end;
@@ -715,6 +716,17 @@ opacity: 0.4;
     display: block;
     margin:38px 0;
 }
+/* .testimonials-main .swiper-pagination{
+    position: absolute;
+bottom: -40% !important;
+    top: auto !important;
+    right: 0;
+    left: auto !important;
+    width: auto !important;
+}
+.testimonials-main .swiper{
+    overflow: visible !important;
+} */
 
 /*****blogs*******/
 .news-main-inner{
@@ -753,7 +765,12 @@ opacity: 0.4;
        margin-top: 20px;
 }
 .news-item.sm .b-img{
-margin-top: 0;
+    width: 290px;
+    height: 160px;
+margin: 0;
+}
+.b-sm-content{
+   width: calc(100% - (290px + 20px)); 
 }
 .news-item.sm .b-img img{
     border-radius: 12px;
@@ -832,6 +849,9 @@ width: 35%;
 }
 .feature-wrapper .main-title{
     width: 80%;
+}
+.feature-wrapper .ab-desc {
+    margin-top: 60px;
 }
 .feature-grid-main{
     gap:30px;
@@ -958,7 +978,7 @@ margin:32px 0;
 }
 .timeline-slider-main{
     width: calc(100% - (486px + 163px));
-        padding-bottom: 150px;
+        /* padding-bottom: 150px; */
 }
 .t-row{
     gap:163px;
@@ -966,24 +986,139 @@ margin:32px 0;
 .timeline-content .ab-desc{
     width: 82%;
 }
-.timelineSlider .swiper-slide{
+.timelineSlider{
     width: 911px;
     height: 520px;
+}
+.tl-slide .asterisk{
+    position: absolute;
+    right: 40px;
+    top: 40px;
+}
+.timelineSlider .tl-slide{
+     position: absolute;
+  /* padding: 32px; */
+    width: 100%;
+    height: 100%;
      border-radius: 20px;
       padding: 32px;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+       /* opacity: 0; */
+ transform: translateX(0) scale(0.92);
+  transition: transform 0.6s ease, opacity 0.6s ease;
       /* box-shadow: 0 30px 60px rgba(0,0,0,0.35); */
 }
+.timelineSlider .tl-slide.active {
+  /* opacity: 1; */
+  transform: translateX(0);
+  z-index: 10;
+}
+.timelineSlider .tl-slide .tl-text{
+    opacity: 0;
+}
+.timelineSlider .tl-slide.active .tl-text{
+    opacity: 1;
+}
+.tl-yr{
+    display: flex;
+    align-items: center;
+    /* gap:30px; */
+    width: 74px;
+    transition: all 0.5s linear;
+}
+.tl-yr-line{
+    width: 0;
+    height: 4px;
+    background-color: #E6FFBD;
+    transition: all 0.5s linear;
+}
+.tl-yr.active{
+    width: 300px;
+}
+.tl-yr.active .tl-yr-line{
+    width: 200px;
+    margin-right: 30px;
+}
+.timelineSlider .tl-slide.active {
+  transform: translateX(0) scale(1);
+  z-index: 3;
+  opacity: 1;
+}
+ .tl-slide.from-left {
+  transform: translateX(-100%) scale(1);
+}
+ .tl-slide.out-left {
+  transform: translateX(-100%) scale(1);
+  z-index: 4;
+  opacity: 0;
+}
+.tl-slide.out-back{
+  opacity: 0;
+  z-index: 0;
+}
+.tl-slide.reverse-pre {
+  transform: translateX(-100%) scale(1);
+}
+/* .tl-slide.out-right {
+  transform: translateX(100%) scale(1);
+  z-index: 4;
+  opacity: 0;
+} */
+.tl-slide.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(0) scale(1); /* default hidden transform */
+  transition: transform 0.6s cubic-bezier(.19,1,.22,1),
+              opacity 0.6s cubic-bezier(.19,1,.22,1);
+}
+
+/* On reverse, hidden slides start from left */
+.tl-slide.hidden.reverse-hidden {
+  transform: translateX(-100%) scale(1);
+}
+/* STACK — NO X AXIS */
+.tl-slide.stack-1 {
+  transform: scale(1);
+  right: -30px;
+  z-index: 2;
+  opacity: 1;
+}
+
+.tl-slide.stack-2 {
+  transform: scale(1);
+  right: -60px;
+  z-index: 1;
+  opacity: 1;
+}
+/* Next stacked */
+/* .timelineSlider .tl-slide.stack-1 {
+  opacity: 1;
+  transform: translateX(0); 
+right: -30px;
+  z-index: 8;
+}
+
+.timelineSlider .tl-slide.stack-2 {
+  opacity: 1;
+  transform: translateX(0);
+      right: -60px;
+  z-index: 7;
+}
+.timelineSlider .tl-slide.stack-3 {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 6;
+} */
 .tl-text{
     height: 100%;
 }
 .tl-text .h4{
-    width: 80%;
+    width: 83%;
 }
  .timeline-years {
       position: absolute;
-      bottom: 0;
+      bottom: -128px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -991,13 +1126,12 @@ margin:32px 0;
     }
 
     .timeline-years span {
-      font-size: 22px;
       cursor: pointer;
       position: relative;
       color: #6B7073;
     }
 
-    .timeline-years span.active {
+    .timeline-years .tl-yr.active span {
       color: #eaff9c;
     }
 

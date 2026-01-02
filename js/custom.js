@@ -65,6 +65,8 @@ if (indMain) {
             },
             481: {
                 slidesPerView: 1.5,
+                speed: 0,
+                autoplay: false
             },
             851: {
                 slidesPerView: 2.5,
@@ -132,6 +134,19 @@ if (indMain) {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
+            breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            481: {
+                slidesPerView: 1,
+                speed: 0,
+                autoplay: false
+            },
+            851: {
+                slidesPerView: 1,
+            },
+        },
 
     });
 }
@@ -151,7 +166,7 @@ if (testimonialMain) {
         },
         speed: 700,
         pagination: {
-            el: '.swiper-pagination',
+            el: '.testimonials-pagination',
             clickable: true,
         },
         autoplay: {
@@ -208,6 +223,9 @@ if (testimonialMain) {
     });
 }
 
+const blogSlider = document.querySelector('.blog-slider-mobile');
+if (blogSlider) {
+
 const blogSwiper = new Swiper(".blogSlider", {
     slidesPerView: 1,
     spaceBetween: 20,
@@ -232,33 +250,187 @@ const blogSwiper = new Swiper(".blogSlider", {
     },
 
 });
+}
 
 const timelineSlider = document.querySelector('.timeline-wrapper');
 if (timelineSlider) {
-    const years = document.querySelectorAll(".timeline-years span");
 
-    const swiper = new Swiper(".timelineSlider", {
-        effect: "cards",
-        grabCursor: true,
-        cardsEffect: {
-            slideShadows: false,
-        },
-        on: {
-            slideChange: function () {
-                years.forEach((year) => year.classList.remove("active"));
-                years[this.activeIndex].classList.add("active");
-            }
-        }
-    });
 
-    years.forEach((year) => {
-        year.addEventListener("click", () => {
-            swiper.slideTo(year.dataset.index);
-        });
+// const slides = document.querySelectorAll(".tl-slide");
+// const years  = document.querySelectorAll(".timeline-years .tl-yr");
+
+// const TOTAL = slides.length;
+// const STACK_SIZE = 3;
+
+// let current = 0;
+// let previous = null;
+
+// function updateSlides(next) {
+//   const direction = next > current ? "forward" : "backward";
+//   previous = current;
+//   current = next;
+
+//   slides.forEach((slide, i) => {
+//     slide.classList.remove(
+//       "active",
+//       "out-left",
+//       "out-right",
+//       "stack-1",
+//       "stack-2",
+//       "hidden"
+//     );
+
+//     let diff = i - current;
+//     if (diff < 0) diff += TOTAL;
+
+//     if (diff === 0) {
+//       slide.classList.add("active");
+//       return;
+//     }
+
+//     if (diff === 1) {
+//       slide.classList.add("stack-1");
+//       return;
+//     }
+
+//     if (diff === 2) {
+//       slide.classList.add("stack-2");
+//       return;
+//     }
+
+//     if (direction === "forward") {
+//       if (i === previous) {
+//         slide.classList.add("out-left");
+//         return;
+//       }
+//     } else {
+//       if (diff === TOTAL - 1) {
+//         slide.classList.add("out-right");
+//         return;
+//       }
+//     }
+
+//     slide.classList.add("hidden");
+//   });
+
+//   years.forEach(y => y.classList.remove("active"));
+//   years[current].classList.add("active");
+// }
+
+// years.forEach(year => {
+//   year.addEventListener("click", () => {
+//     const index = Number(year.dataset.index);
+//     if (index !== current) updateSlides(index);
+//   });
+// });
+
+// updateSlides(0);
+
+const slides = document.querySelectorAll(".tl-slide");
+const years  = document.querySelectorAll(".timeline-years .tl-yr");
+
+const TOTAL = slides.length;
+const STACK_SIZE = 3;
+
+let current = 0;
+let previous = 0;
+
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
+
+function updateSlides(next, isInit = false) {
+  const isReverse = next < current;
+  previous = current;
+  current = next;
+
+  const outIndex = isReverse
+    ? mod(previous + 2, TOTAL)
+    : previous;
+
+  /* PASS 1: CLEAN */
+  slides.forEach(slide => {
+    slide.classList.remove(
+      "active",
+      "stack-1",
+      "stack-2",
+      "out-left",
+      "out-back",
+      "from-left",
+      "reverse-pre",
+      "hidden"
+    );
+  });
+
+  /* PASS 2: PRE-STATE (REVERSE ONLY) */
+  if (isReverse && !isInit) {
+    slides.forEach((slide, i) => {
+      const diff = mod(i - current, TOTAL);
+      if (diff >= 0 && diff < STACK_SIZE) {
+        slide.classList.add("reverse-pre");
+      }
     });
+  }
+
+  /* PASS 3: FINAL STATE */
+  requestAnimationFrame(() => {
+    slides.forEach((slide, i) => {
+      slide.classList.remove("reverse-pre");
+
+      const diff = mod(i - current, TOTAL);
+
+      if (!isInit && i === outIndex && i !== current) {
+        slide.classList.add(isReverse ? "out-back" : "out-left");
+        return;
+      }
+
+      if (diff === 0) {
+        slide.classList.add("active");
+        return;
+      }
+
+      if (diff === 1) {
+        slide.classList.add("stack-1");
+        return;
+      }
+
+      if (diff === 2) {
+        slide.classList.add("stack-2");
+        return;
+      }
+
+      slide.classList.add("hidden");
+      
+       if (isReverse && !isInit) {
+      slide.classList.add("reverse-hidden");
+    }
+    });
+  });
+
+  years.forEach(y => y.classList.remove("active"));
+  years[current]?.classList.add("active");
 }
 
 
+
+
+
+/* CLICK */
+years.forEach(year => {
+  year.addEventListener("click", () => {
+    const index = Number(year.dataset.index);
+    if (!Number.isNaN(index) && index !== current) updateSlides(index);
+  });
+});
+
+/* INIT */
+updateSlides(0, true);
+
+
+  }
+
+const curveMarquee = document.querySelector('.curve-marquee-main');
+if (curveMarquee) {
 
 const tp1 = document.getElementById("tp1");
 const tp2 = document.getElementById("tp2");
@@ -299,3 +471,4 @@ function tick(now) {
 }
 
 requestAnimationFrame(tick);
+}
